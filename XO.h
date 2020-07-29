@@ -1,3 +1,8 @@
+#ifndef XO_H
+#define XO_H
+
+#include <SDL2/SDL.h>
+
 /*
  *	Rhys Trueman || 25/7/2020
  *
@@ -6,14 +11,20 @@
  */
 
 //draw a green x
-void draw_x(SDL_Renderer * renderer, int x, int y, int w, int h)
+void draw_x(SDL_Renderer * renderer, int x, int y, int w, int h);
+
+//x,y is the midpoint of the circle
+struct SDL_Circle
 {
-	//set the render color to green
-	SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0x00, 0xFF);
+	int x;//midpoint x pixel
+	int y;//midpoint y pixel
+	int r;//radius in pixels
+};
 
-	//top left to bottom right
-	SDL_RenderDrawLine(renderer, x, y, x + w, y + h);
+//draw o would appear to be more involved
+//SDL2 has no draw elipse/circle function
+//so i'll be writing my own
+void SDL_DrawCircle(SDL_Renderer * renderer, SDL_Circle * c);
 
-	//bottom left to top right
-	SDL_RenderDrawLine(renderer, x, y + h, x + w, y);
-}
+void draw_o(SDL_Renderer * renderer, int x, int y, int r);
+#endif

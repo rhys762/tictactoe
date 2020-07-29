@@ -1,15 +1,14 @@
 #include "Window.h"
-#include "DrawGrid.h"
-#include "XO.h"
+#include "Grid.h"
 #include <iostream>
 
 int main()
 {
-	Window w ("Tic Tac Toe", 600, 600);
+	int screen_width = 600, screen_height = 600;
+	Window w ("Tic Tac Toe", screen_width, screen_height);
 	
-	DrawGrid(w.rend(), 600, 600);
-	draw_x(w.rend(), 0, 0, 200, 200);
-	SDL_RenderPresent(w.rend());
+
+	Grid grid (screen_width, screen_height, w.rend());
 
 	SDL_Event e;
 	bool running = true;
@@ -18,9 +17,16 @@ int main()
 	{
 		while(SDL_PollEvent(&e))
 		{
-			if(e.type == SDL_QUIT)
+			switch(e.type)
 			{
-				running = false;
+				case SDL_QUIT:
+					running = false;
+					break;
+				case SDL_MOUSEBUTTONDOWN:
+					int x, y;
+					SDL_GetMouseState(&x,&y);
+					grid.click(x,y);
+					break;
 			}
 		}
 	}
