@@ -1,4 +1,4 @@
-#include "XO.h"
+#include "XO.hpp"
 #include <cmath>
 #include <iostream>
 

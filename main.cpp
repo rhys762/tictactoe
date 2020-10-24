@@ -1,17 +1,18 @@
-#include "Window.h"
-#include "Grid.h"
+#include "Window.hpp"
+#include "Grid.hpp"
 #include <iostream>
 
 int main()
 {
-	int screen_width = 600, screen_height = 600;
-	Window w ("Tic Tac Toe", screen_width, screen_height);
+	const int screen_width = 600, screen_height = 600;
+	//running is condition for the main loop, set by window constructor
+	bool running;
+	Window w ("Tic Tac Toe", screen_width, screen_height, &running);
 	
 
-	Grid grid (screen_width, screen_height, w.rend());
+	Grid grid (screen_width, screen_height, w.renderer());
 
 	SDL_Event e;
-	bool running = true;
 
 	while(running)
 	{

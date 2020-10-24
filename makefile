@@ -5,7 +5,7 @@ L_FLAGS=-lSDL2
 $(EXEC_NAME): Grid.o main.o Window.o XO.o
 	g++ Grid.o main.o Window.o XO.o -o $(EXEC_NAME) $(L_FLAGS)
 
-Grid.o: Grid.cpp
+Grid.o: DrawGrid.hpp Grid.cpp
 	g++ $(C_FLAGS) -c Grid.cpp
 
 main.o: main.cpp

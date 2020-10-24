@@ -1,5 +1,5 @@
-#include "Grid.h"
-#include "DrawGrid.h"
+#include "Grid.hpp"
+#include "DrawGrid.hpp"
 
 void Grid::init()//set the grid entrys to NONE
 {

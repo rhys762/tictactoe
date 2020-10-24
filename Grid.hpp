@@ -1,5 +1,5 @@
 #include <SDL2/SDL.h>
-#include "XO.h"
+#include "XO.hpp"
 
 //manager for the game
 class Grid
