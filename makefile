@@ -2,10 +2,10 @@ EXEC_NAME=tictactoe
 C_FLAGS=-Wall
 L_FLAGS=-lSDL2
 
-prog: Grid.o main.o Window.o XO.o
+$(EXEC_NAME): Grid.o main.o Window.o XO.o
 	g++ Grid.o main.o Window.o XO.o -o $(EXEC_NAME) $(L_FLAGS)
 
-Grid.o: DrawGrid.h Grid.cpp
+Grid.o: Grid.cpp
 	g++ $(C_FLAGS) -c Grid.cpp
 
 main.o: main.cpp
